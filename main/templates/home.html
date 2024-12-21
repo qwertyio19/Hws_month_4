@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Добро пожаловать на наш сайт!</h1>
+    
+    <h2>Список баннеров</h2>
+    <div>
+        {% for banner in banners %}
+            <div>
+                <h3>{{ banner.title }}</h3>
+                <p>{{ banner.description }}</p>
+                <img src="{{ banner.image.url }}" alt="{{ banner.title }}" style="max-width: 300px;">
+            </div>
+        {% empty %}
+            <p>Баннеры не найдены.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
